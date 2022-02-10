@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import { filterImageFromURL, deleteLocalFiles } from './util/util';
 import { sequelize } from './sequelize';
 import { V0MODELS } from './controllers/models/User';
+import { UserRouter } from './controllers/routes/user.router';
+import { requireAuth } from './controllers/routes/auth.router';
 
 (async () => {
   await sequelize.addModels(V0MODELS);
@@ -16,7 +18,7 @@ import { V0MODELS } from './controllers/models/User';
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
-
+  app.use('/', UserRouter)
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   // GET /filteredimage?image_url={{URL}}
   // endpoint to filter an image from a public url.
@@ -32,7 +34,9 @@ import { V0MODELS } from './controllers/models/User';
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
-  app.get("/filteredimage", async (req, res) => {
+  app.get("/filteredimage",
+  requireAuth,
+  async (req, res) => {
     let { image_url } = req.query;
 
     if (!image_url || typeof image_url != "string") {
