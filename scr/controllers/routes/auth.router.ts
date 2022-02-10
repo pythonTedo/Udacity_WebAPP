@@ -43,7 +43,7 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
     // get the text after the space
     const token = token_bearer[1];
 
-    return jwt.verify(token, config.jwt.secret, (err, decoded) => {
+    return jwt.verify(token, config.jwt.secret, (err: any, decoded: any) => {
       if (err) {
         return res.status(500).send({ auth: false, message: 'Failed to authenticate.' });
       }
@@ -116,7 +116,7 @@ router.post('/', async (req: Request, res: Response) => {
         email: email,
         password_hash: password_hash
     });
-
+    
     let savedUser;
     try {
         savedUser = await newUser.save();
