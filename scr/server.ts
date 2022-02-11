@@ -42,7 +42,7 @@ import { requireAuth } from './controllers/routes/auth.router';
   /**************************************************************************** */
   app.get("/filteredimage",
   requireAuth,
-  async (req, res) => {
+  async (req: express.Request, res: express.Response) => {
     let { image_url } = req.query;
 
     if (!image_url || typeof image_url != "string") {
