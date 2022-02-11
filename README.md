@@ -2,24 +2,10 @@
 
 Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
 
-## Tasks
-
 ### Setup Node Environment
-
-You'll need to create a new node server. Open a new terminal within the project directory and run:
 
 1. Initialize a new project: `npm i`
 2. run the development server with `npm run dev`
-
-### Create a new endpoint in the server.ts file
-
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
-
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
-
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
 
 ### Deploying your system
 
@@ -29,25 +15,19 @@ Follow the process described in the course to `eb init` a new application and `e
 ### Refactor the course RESTapi
 ### ADD user is being add as an endpoint AND GET method requires authentication!
 
+## How the code is structured
+
+In file scr/server.ts - I commented out ***requireAuth*** function for authentication of users. For easy review. 
+
+If you use this funtion you have to provide access token in order to recive an image. 
+From the project use teodor_webdev-final.postman_collection.json in Postman. 
+
 With POST http://{{HOST}}/auth and JSON {email, password} you can create new user and its going to retrive a token.
 
 Use that thoken in Postman -> GET http://{{HOST_EB}}filteredimage?image_url= -> Authorization -> OAuth 2.0 
-
-From the project use teodor_webdev-final.postman_collection.json in Postman. 
 
 There are 2 variables:
     1. Host -> for localhost
     2. HOST_EB -> elastic beanstalk
 
 http://app-final-web-dev.us-east-1.elasticbeanstalk.com/  --- EB URL
-
-
-### Authentication
-
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
-
-### Custom Domain Name
-
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
