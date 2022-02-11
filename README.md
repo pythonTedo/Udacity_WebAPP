@@ -35,7 +35,17 @@ Follow the process described in the course to `eb init` a new application and `e
 
 ### Refactor the course RESTapi
 
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
+### ADD user is being add as an endpoint AND GET method requires authentication!
+
+With POST http://{{HOST}}/auth and JSON {email, password} you can create new user and its going to retrive a token.
+
+Use that thoken in Postman -> GET http://{{HOST_EB}}filteredimage?image_url= -> Authorization -> OAuth 2.0 
+
+From the project use teodor_webdev-final.postman_collection.json in Postman. 
+
+There are 2 variables:
+    1. Host -> for localhost
+    2. HOST_EB -> elastic beanstalk
 
 ### Authentication
 

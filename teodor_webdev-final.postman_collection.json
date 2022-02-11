@@ -127,6 +127,11 @@
 			"key": "HOST",
 			"value": "localhost:8082",
 			"type": "string"
+		},
+		{
+			"key": "HOST_EB",
+			"value": "app-final-web-dev.us-east-1.elasticbeanstalk.com",
+			"type": "string"
 		}
 	]
 }
