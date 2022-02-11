@@ -15,12 +15,12 @@
     "type": "git",
     "url": "git+https://github.com/grutt/udacity-c2-image-filter.git"
   },
-  "author": "",
+  "author": "Teodor Chakarov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/grutt/udacity-c2-image-filter/issues"
   },
-  "homepage": "https://github.com/grutt/udacity-c2-image-filter#readme",
+  "homepage": "https://github.com/pythonTedo",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/bluebird": "^3.5.33",
