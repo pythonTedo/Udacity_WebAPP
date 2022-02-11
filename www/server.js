@@ -18,7 +18,6 @@ const util_1 = require("./util/util");
 const sequelize_1 = require("./sequelize");
 const User_1 = require("./controllers/models/User");
 const user_router_1 = require("./controllers/routes/user.router");
-const auth_router_1 = require("./controllers/routes/auth.router");
 (() => __awaiter(void 0, void 0, void 0, function* () {
     yield sequelize_1.sequelize.addModels(User_1.V0MODELS);
     yield sequelize_1.sequelize.sync();
@@ -48,7 +47,9 @@ const auth_router_1 = require("./controllers/routes/auth.router");
     // RETURNS
     //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
     /**************************************************************************** */
-    app.get("/filteredimage", auth_router_1.requireAuth, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    app.get("/filteredimage", 
+    //  requireAuth,
+    (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let { image_url } = req.query;
         if (!image_url || typeof image_url != "string") {
             return res.status(404).send("Image URL is required");

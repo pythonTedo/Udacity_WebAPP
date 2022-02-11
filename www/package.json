@@ -8,19 +8,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "clean": "rimraf www/ || true",
-    "build": "npm run clean && tsc && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r Archive.zip . && cd ..",
+    "build": "npm run clean && tsc && cp package.json www/package.json && mkdir www/tmp/ && cp /scr/.npmrc /www && cd www && zip -r Archive.zip . && cd ..",
     "dev": "ts-node-dev  --respawn --transpile-only ./scr/server.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/grutt/udacity-c2-image-filter.git"
   },
-  "author": "",
+  "author": "Teodor Chakarov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/grutt/udacity-c2-image-filter/issues"
   },
-  "homepage": "https://github.com/grutt/udacity-c2-image-filter#readme",
+  "homepage": "https://github.com/pythonTedo",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/bluebird": "^3.5.33",
